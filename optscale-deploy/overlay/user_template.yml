@@ -13,6 +13,20 @@ cluster_name:
 logstash_host: 172.22.1.37
 logstash_port: 12201
 
+# service credentials for service tasks (getting pricings for the recommendations)
+# recommendations will not work without this
+service_credentials:
+  aws:
+    access_key_id: 
+    secret_access_key: 
+  azure:
+    client_id: 
+    tenant: 
+    secret: 
+    subscription_id: 
+  alibaba:
+    access_key_id: 
+    secret_access_key: 
 
 # used for recommendations etc
 smtp:
@@ -20,3 +34,34 @@ smtp:
   email:
   port:
   password:
+
+slacker:
+  slack_signing_secret: 
+  slack_client_id:
+  slack_client_secret:
+
+# google calendar service settings
+google_calendar_service:
+  access_key:
+    type: service_account
+    project_id: optscale
+    private_key_id: eeee000
+    private_key: |
+      -----BEGIN PRIVATE KEY-----
+      -----END PRIVATE KEY-----
+    client_email: calendar-service@optscale.iam.gserviceaccount.com
+    client_id: ""
+    auth_uri: https://accounts.google.com/o/oauth2/auth
+    token_uri: https://oauth2.googleapis.com/token
+    auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+    client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/calendar-service@optscale.iam.gserviceaccount.com
+
+#  encryption key
+encryption_key: fffffxdddeadb33f
+
+# This overlay should be used for all non-production environments (?)
+# - https://console.developers.google.com/ to see registered origins for the Google OAuth client"
+# - https://portal.azure.com/ to see registered origins for the Microsoft OAuth client"
+auth:
+  google_oauth_client_id: ""
+  microsoft_oauth_client_id: ""

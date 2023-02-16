@@ -114,7 +114,7 @@ class Azure(CloudBase):
                        protected=True),
     ]
     SUPPORTS_REPORT_UPLOAD = False
-    DEFAULT_CURRENCY = 'USD'
+    DEFAULT_CURRENCY = 'CAD'
     DEFAULT_IMPORT_SCHEME = ExpenseImportScheme.usage.value
 
     def __init__(self, cloud_config, *args, **kwargs):
@@ -413,7 +413,7 @@ class Azure(CloudBase):
 
     def _get_billing_info(self):
         consumption_api_supported = True
-        currency = 'USD'
+        currency = 'CAD'
         subscription_type = self._guess_subscription_type(
             self._subscription_id)
         warnings = []
@@ -870,7 +870,7 @@ class Azure(CloudBase):
             aggregation_granularity=granularity,
         )
 
-    def get_public_prices(self, currency='USD', region='US',
+    def get_public_prices(self, currency='CAD', region='US',
                           offer_id='MS-AZR-0003P', locale='en-US'):
         """
         Get public Azure prices
@@ -906,7 +906,7 @@ class Azure(CloudBase):
             for p in prices.meters
         }
 
-    def get_partner_prices(self, currency='USD', region='US'):
+    def get_partner_prices(self, currency='CAD', region='US'):
         """
         Get CSP Azure prices from Partner Center
         :param currency: result currency

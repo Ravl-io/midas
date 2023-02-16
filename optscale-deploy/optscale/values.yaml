@@ -791,7 +791,7 @@ bumi_worker:
 
 optscale_meter_enabled: 0
 
-fake_cad_enabled: 0
+fake_cad_enabled: 1
 
 #filled from smtp overlay - smtp settings for testing
 smtp:

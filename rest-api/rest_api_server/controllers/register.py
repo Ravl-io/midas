@@ -23,7 +23,7 @@ class RegisterController(BaseController):
         self.session.commit()
 
     def add_organization(self, name, user_info, currency=None, is_demo=False):
-        currency = currency or 'USD'
+        currency = currency or 'CAD'
         skip_greetings_email = True
         if not is_demo:
             number_of_organizations = self.session.query(Employee).filter(
